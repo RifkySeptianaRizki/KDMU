@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tournament Pro - KDMU</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>KOMPETISI DEBAT MAHASISWA</h1>
+      <h1>UNIVERSITAS SEBELAS APRIL</h1>
+    </header>
+
+    <main id="main-content">
+      <section class="card setup-view" id="setup-view">
+        <h2 class="card-title"><i class="fas fa-users-cog"></i>PESERTA KDMU</h2>
+        <div id="team-list-container">
+          </div>
+        <div class="actions">
+          <button id="start-tournament-btn"><i class="fas fa-random"></i> Acak Lawan & Mulai</button>
+        </div>
+      </section>
+
+      <section class="card match-view" id="match-view" style="display: none;">
+        <h2 class="card-title" id="round-title"></h2>
+        <div class="match-display">
+          <div class="team-card" id="team1-card">
+            <img src="" alt="Logo Tim 1" class="team-logo">
+            <span class="team-name"></span>
+          </div>
+          <div class="vs-separator">VS</div>
+          <div class="team-card" id="team2-card">
+            <img src="" alt="Logo Tim 2" class="team-logo">
+            <span class="team-name"></span>
+          </div>
+        </div>
+        <div class="match-mosi-display">
+          <p><i class="fas fa-scroll"></i> Mosi: <strong id="mosi-terpilih">Belum Ditentukan</strong></p>
+        </div>
+
+        <div id="score-input-area" class="score-input-area" style="display: none;">
+          <div class="score-input">
+            <label id="label-skor-1" for="skor-tim-1">Skor Tim 1</label>
+            <input type="number" id="skor-tim-1" placeholder="0">
+          </div>
+          <div class="score-input">
+            <label id="label-skor-2" for="skor-tim-2">Skor Tim 2</label>
+            <input type="number" id="skor-tim-2" placeholder="0">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="spin-mosi-btn" class="primary"><i class="fas fa-dice"></i>Spin Mosi</button>
+          <button id="save-score-btn" class="success" style="display: none;"><i class="fas fa-save"></i>Simpan Skor</button>
+        </div>
+      </section>
+
+      <section class="card winner-view" id="winner-view" style="display: none;">
+        <h2 class="card-title"><i class="fas fa-trophy"></i>JUARA KDMU 2025</h2>
+        
+        <div class="podium-container">
+          <div class="winner-details">
+              <h4><i class="fas fa-crown"></i> CHAMPION</h4> 
+              <div class="winner-logo-frame">
+                <img src="" alt="Logo Pemenang" class="winner-logo" id="winner-logo"> </div>
+              <h3 class="winner-name" id="winner-name"></h3> </div>
+      
+          <div class="runner-up-details" id="runner-up-details">
+              <h4><i class="fas fa-medal"></i> RUNNER-UP</h4>
+              <div class="winner-logo-frame"> 
+                <img src="" alt="Logo Juara 2" class="winner-logo" id="runner-up-logo">
+              </div>
+              <h3 class="runner-up-name" id="runner-up-name"></h3>
+          </div>
+      </div>
+        
+        <div class="actions">
+          <button id="view-bracket-btn"><i class="fas fa-sitemap"></i> Lihat Bagan Hasil</button>
+
+        </div>
+    </section>
+    </main> <aside class="card" id="log-panel">
+      <h2 class="card-title"><i class="fas fa-history"></i>RECAP POINT</h2>     
+      <div id="match-log-container">
+        </div>
+       <div class="actions">
+          <button id="reset-btn" class="danger" style="display: none;"><i class="fas fa-sync-alt"></i> Reset Turnamen</button>
+       </div>
+    </aside>
+
+  </div> <div id="modal-mosi" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div id="spinner-view">
+        <div class="wheel-container">
+          <div class="pointer"></div>
+          <canvas id="wheel-canvas" width="400" height="400"></canvas>
+        </div>
+        <button id="spin-btn"><i class="fas fa-play-circle"></i> PUTAR!</button>
+      </div>
+      <div id="result-view" style="display: none;">
+        <h2 id="result-title"></h2>
+        <p id="result-description"></p>
+        <button id="close-result-btn"><i class="fas fa-check"></i> Tutup </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bracket-modal" id="bracket-modal" style="display: none;">
+    <div class="bracket-modal-content">
+      <span class="close-bracket-btn">&times;</span>
+      <h2>Bagan Hasil Akhir KDMU</h2>
+      <div class="bracket-full-container" id="full-bracket-container">
+        </div>
+    </div>
+  </div>
+  <button id="restart-btn" class="restart-button" title="Mulai Turnamen Baru">
+    <i class="fas fa-redo"></i>
+  </button> 
+  <script src="script.js"></script>
+</body>
+</html>
